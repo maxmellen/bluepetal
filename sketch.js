@@ -23,19 +23,17 @@ function setup() {
 
 function draw() {
   background(0);
-  // translate(width / 2, height / 2);
   rotate(HALF_PI);
 
-  const S = min(width, height);
-  const s = S / 2;
+  const s = min(width, height);
   const radD = radians(d);
 
-  for (let a = 0; a < 360; a += 1) {
+  for (let a = 0; a < 360; a += .25) {
     push();
 
     const radA = radians(a);
-    const x = cos(radA) * S / 4;
-    const y = sin(radA) * S / 4;
+    const x = cos(radA) * s / 2;
+    const y = sin(radA) * s / 2;
 
     translate(x, y);
     rotate(radA * radD - QUARTER_PI);
@@ -45,7 +43,7 @@ function draw() {
     pop();
   }
 
-  d += 1;
+  d += .25;
 }
 
 function windowResized() {
